@@ -1,0 +1,47 @@
+<%-include('../cabecalho.ejs')%>
+
+    <form method="post">
+        <input type="text" class="pesquisa" name="pesquisa" placeholder="Digite o nome que deseja pesquisar.">
+        <input type="submit" value="Pesquisar">
+    </form>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Episódios</th>
+            <th>Lançamento</th>
+            <th>Poster</th>
+            <th>Ações</th>
+        </tr>
+        <%Series.forEach(function(serie) {%>
+        <tr>
+            <td>
+                <%=serie.titulo%>
+            </td>
+            <td>
+                <%=serie.descricao%>
+            </td>
+            <td>
+                <%=serie.episodios%>
+            </td>
+            <td>
+                <%let x = serie.lancamento.getMonth() + 1%>
+                <%=serie.lancamento.getDate() + 1 + "/" + x + "/" + serie.lancamento.getFullYear()%>
+            </td>
+            <td>
+                <img class="img-poster" 
+                    src="/images/<%=serie.foto%>" 
+                    alt="Poster da foto">
+            </td>
+            <td>
+                <a href="/serie/editar/<%=serie._id%>">
+                    <img class="img-responsive" src="/edit.png" alt="Editar">
+                </a>
+                <a href="/serie/deletar/<%=serie._id%>">
+                    <img class="img-responsive" src="/delete.png" alt="Deletar">
+                </a>
+            </td>
+        </tr>
+        <% }) %>
+    </table>
+<%-include('../rodape.ejs')%>

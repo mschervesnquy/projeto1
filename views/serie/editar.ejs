@@ -1,0 +1,23 @@
+<%-include('../cabecalho.ejs')%>
+    <form method="post" enctype="multipart/form-data">
+        ID: <input type="text" name="id"
+                   value="<%=Serie._id%>" readonly required><br>
+        Título: <input type="text" name="titulo"
+                       placeholder="Insira o título"
+                       autocomplete="off" value="<%=Serie.titulo%>" required><br>
+        Episódios: <input type="number" name="episodios"
+                          placeholder="Insira o número total de episódios"
+                          autocomplete="off" value="<%=Serie.episodios%>" required><br>
+        Temporadas: <input type="number" name="temporadas"
+                           placeholder="Insira o número de temporadas"
+                           autocomplete="off" value="<%=Serie.temporadas%>" required><br>
+        Descrição: <input type="text" name="descricao"
+                          placeholder="Insira a descrição da série"
+                          autocomplete="off" value="<%=Serie.descricao%>" required><br>
+        Lançamento: <input type="date" name="lancamento"
+                           placeholder="Insira a data de lançamento"
+                           autocomplete="off" value="<%=Serie.lancamento%>" required><br>
+        Poster: <input type="file" name="foto" accept="image/*" required><br>
+                <input type="submit" value="Salvar">
+    </form>
+<%-include('../rodape.ejs')%>
